@@ -227,7 +227,7 @@ see something that is missing.
 ## Changelog
 
 **v2.0.0**
-
+- Removed JSON AST for json4s
 
 
 **v1.0.0
