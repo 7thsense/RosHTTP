@@ -226,8 +226,11 @@ see something that is missing.
 
 ## Changelog
 
+**v2.0.0**
 
-**v1.0.0 - stable release**
+
+
+**v1.0.0
 - Using strict SemVer from now on
 - Renamed RösHTTP
 - Add .withBody()
