@@ -1,6 +1,7 @@
 name := "RösHTTP root project"
 
 crossScalaVersions := Seq("2.10.6", "2.11.7")
+//isSnapshot := true
 
 lazy val root = project.in(file(".")).
 aggregate(scalaHttpJS, scalaHttpJVM)
@@ -9,34 +10,14 @@ lazy val scalaHttp = crossProject.in(file("."))
   .configure(InBrowserTesting.cross)
   .settings(
     name := "roshttp",
-    version := "1.0.1",
+    version := "1.0.1.ss.0",
+    bintrayOrganization := Some("7thsense"),
     scalaVersion := "2.11.7",
     organization := "fr.hmil",
-    licenses := Seq("MIT" -> url("https://opensource.org/licenses/MIT")),
+    bintrayOrganization := Some("7thsense"),
     homepage := Some(url("http://github.com/hmil/RosHTTP")),
-
+    licenses := Seq("MIT" -> url("https://opensource.org/licenses/MIT")),
     publishMavenStyle := true,
-    publishTo := {
-      val nexus = "https://oss.sonatype.org/"
-      if (isSnapshot.value)
-        Some("snapshots" at nexus + "content/repositories/snapshots")
-      else
-        Some("releases" at nexus + "service/local/staging/deploy/maven2")
-    },
-    pomExtra := (
-      <scm>
-        <url>git@github.com:hmil/RosHTTP.git</url>
-        <connection>scm:git:git@github.com:hmil/RosHTTP.git</connection>
-      </scm>
-      <developers>
-        <developer>
-          <id>hmil</id>
-          <name>Hadrien Milano</name>
-          <url>https://github.com/hmil/</url>
-        </developer>
-      </developers>
-    ),
-    pomIncludeRepository := { _ => false },
 
     libraryDependencies += "com.lihaoyi" %%% "utest" % "0.4.3",
 
